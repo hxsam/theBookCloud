@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+ <class name="com.thebookcloud.objects.User" table="User">
+  <id name="userId" type="int" column="user_id" >
+   <generator class="native"/>
+  </id>
+ 
+  <property name="firstName">
+   <column name="first_name" />
+  </property>  
+  <property name="middleName">
+   <column name="middle_name" />
+  </property>
+  <property name="lastName">
+   <column name="last_name"/>
+  </property>
+  <property name="emailAddress">
+   <column name="email_address"/>
+  </property>
+  <property name="passwordHash">
+   <column name="password"/>
+  </property>
+  <set name="preferences" table= "preferences" inverse="true" lazy="true" fetch="select" cascade="all">
+	<key column="preference_id"/>
+	<one-to-many class="com.thebookcloud.objects.Preference" />
+  </set>
+  <set name="queues" table="Queue" inverse="true" lazy="true" fetch="select" cascade="all">
+	<key column="queue_id" />
+	<one-to-many class="com.thebookcloud.objects.Queue" />
+  </set>
+ </class>
+</hibernate-mapping>

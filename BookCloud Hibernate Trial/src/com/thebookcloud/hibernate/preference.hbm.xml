@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+ <class name="com.thebookcloud.objects.Preference" table="Preference">
+  <id name="preferenceId" type="int" column="preference_id" >
+   <generator class="native"/>
+  </id>
+ 
+  <property name="preferenceType">
+   <column name="preference_definition_id" />
+  </property>  
+  <many-to-one name="user" class="com.thebookcloud.objects.User" fetch="select">
+  	<column name="user_id"/>
+  </many-to-one>
+  <property name="value">
+   <column name="value"/>
+  </property>
+ </class>
+</hibernate-mapping>
+

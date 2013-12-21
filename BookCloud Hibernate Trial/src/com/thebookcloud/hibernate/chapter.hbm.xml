@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+ <class name="com.thebookcloud.objects.Chapter" table="Chapter">
+  <id name="chapterId" type="int" column="chapter_id" >
+   <generator class="native"/>
+  </id>
+ 
+  <property name="bookId">
+   <column name="book_id" />
+  </property>  
+  <property name="chapterNumber">
+   <column name="chapter_number" />
+  </property>
+  <property name="title">
+   <column name="title"/>
+  </property>
+  <property name="text">
+   <column name="text"/>
+  </property>
+ </class>
+</hibernate-mapping>
+

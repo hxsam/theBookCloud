@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+ <class name="com.thebookcloud.objects.QueueEntry" table="Queue_Entry">
+  <id name="queueEntryId" type="int" column="queue_entry_id" >
+   <generator class="native"/>
+  </id>
+  
+  <many-to-one name="queue" class="com.thebookcloud.objects.Queue" fetch="select">
+  	<column name="queue_id"/>
+  </many-to-one>
+ 
+  <property name="bookId">
+   <column name="book_id" />
+  </property>
+  <property name="orderPlacement">
+   <column name="order_placement"/>
+  </property>
+ </class>
+</hibernate-mapping>
